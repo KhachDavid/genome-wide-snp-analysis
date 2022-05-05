@@ -17,24 +17,22 @@ Both Windows and MacOS
 You must also download [plink 1.9](https://www.cog-genomics.org/plink/) and place the executable in the root directory. Please make sure to download the correct version for your CPU architecture.
 
 You must also download the population sample data from here: [population.csv](https://drive.google.com/file/d/1GED_wzU3VAKP_gCgCYEFcH0JeqX-VZzl/view?usp=sharing). Please place this file inside the app_pca directory. 
-<br>
-<br>
 
 # Set up. Run the following commands after clonging the project.
 
 `apt-get install python3-venv`
-<br>
+
 `python -m venv venv`
-<br>
+
 `source venv/bin/activate`
-<br>
+
 `cd config/`
-<br>
+
 `pip install -r core/requirements.txt`
-<br>
+
+`cd ..`
+
 `./run`
-<br>
-<br>
 
 # Data
 Data submitted to this web application must follow the [GT](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3137218/) format described in the linked paper
@@ -60,8 +58,6 @@ It must have the following columns:
     9. FORMAT
 
 Starting from column 10, the columns will be treated as the samples. **The program will fail** if the submitted file doesn't follow this format.
-
-<br>
 
 # Background
 
