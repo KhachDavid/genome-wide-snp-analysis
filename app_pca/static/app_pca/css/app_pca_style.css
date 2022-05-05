@@ -42,3 +42,10 @@
     /* Center input children */
     margin-top: 2rem;
 }
+
+.system-status-info {
+    position: absolute;
+    top: var(--header-height);
+    left: 3rem;
+    width: 100%;
+}

@@ -153,3 +153,5 @@ sample.txt
 *.bed 
 *.bim
 *.fam
+*.irem
+inputUser*

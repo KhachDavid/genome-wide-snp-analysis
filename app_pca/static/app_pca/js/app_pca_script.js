@@ -284,10 +284,17 @@ function checkMetaData(
   console.log("file last modified date: ", fileLastModifiedDate);
 
   if (fileSize > 320536434) {
-    alert("File size is too large. Must be less than 320MB");
+    document.getElementById("status-info-text").innerHTML = "File size too large. Max is 320 MB";
     return false;
   }
 
+
+  document.getElementById("status-info-text").innerHTML = "File uploaded successfully";
+  // sleep for 2 seconds
+  setTimeout(function () {
+    // hide the status info text
+    document.getElementById("status-info-text").innerHTML = "RUNNING PCA...";
+  }, 2000);
   return true;
 }
 
@@ -316,13 +323,14 @@ function submitData(data) {
 
     .then(function (response) {
       // get the response
-      console.log("response: ", response);
+      document.getElementById("status-info-text").innerHTML = "PCA complete";
       plotPCA(response.plotPoints, response.userPoints);
     });
 }
 
 function plotPCA(baseDataset, inputDataset) {
   // use plotly to plot the data
+  document.getElementById("status-info-text").innerHTML = "Plotting PCA...";
 
   let base_x = baseDataset.map(function (d) {
     return d[0];
@@ -440,13 +448,14 @@ function plotPCA(baseDataset, inputDataset) {
     },
   };
 
-  Plotly.newPlot("plot", data, layout);
-
+  Plotly.newPlot("plot", data, layout).then(function (gd) {
+    // when the plot is done
+    document.getElementById("status-info-text").innerHTML = "Plotting complete";
+    document.getElementsByClassName(".app-body-content-text-input-title")[0].style.display = "none";
+    document.getElementsByClassName(".app-body-content-text-input")[0].style.display = "none";
+    document.getElementById("status-info-text").innerHTML = "Done!";  
+  });
   // show the plot
-  document.getElementById("plot").style.display = "block";
 
 
-  document.getElementsByClassName(".app-body-content-text-input-title")[0].style.display = "none";
-  document.getElementsByClassName(".app-body-content-text-input")[0].style.display = "none";
 }
-
