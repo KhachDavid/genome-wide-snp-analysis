@@ -148,3 +148,8 @@ cython_debug/
 *.csv
 plink
 sample.txt
+*.tfam
+*.log
+*.bed 
+*.bim
+*.fam
