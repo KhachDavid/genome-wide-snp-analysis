@@ -69,6 +69,10 @@ The goal of this project is to infer the population structure of the sample, usi
 
 This web app allows a user to plot their sample onto the famous HGDP dataset and infer the population structure. Visually it will show you which one it is closest to. 
 
+<img width="500" alt="image" src="https://user-images.githubusercontent.com/65775837/166975693-a7edbd6c-8370-4fbd-a172-f8a90944e794.png">
+
+Ultimately it goes down to this format. Where the structure of HGDP is labeled, but the user input file is not labeled. By visualizing these points, we can learn more about our population sample's structure.
+
 # Troubleshooting
 
 - If scripts do not run, please make sure that you have given access to the scripts in the root directory and to the scripts in the config directory.
