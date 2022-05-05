@@ -1,5 +1,9 @@
 # Population Structure Inference Using PCA
 
+Demo: 
+
+https://user-images.githubusercontent.com/65775837/166978687-276fd7b4-324b-4380-a9b3-2bc3cd2b92b5.mov
+
 ## Requirements
 Tools and packages required to successfully install this project.
 
