@@ -1,0 +1,4 @@
+#!/bin/bash
+
+
+python3 -Wa manage.py test --pattern="test*.py" $1

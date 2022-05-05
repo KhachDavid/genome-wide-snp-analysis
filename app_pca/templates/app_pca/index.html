@@ -1,0 +1,58 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %} Population Inference {% endblock %}
+
+<!-- Specific head content applicable to index.html -->
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static 'app_pca/css/app_pca_style.css' %}">
+<script src="{% static 'app_pca/js/app_pca_script.js' %}" defer></script>
+{% endblock extrahead %}
+
+<!-- Actual content of index.html -->
+{% block content %}
+<div class="app-body-content">
+    <div class="app-body-content-text-input-title">
+        <h1>Specifications</h1>
+
+        <div class="app-body-content-text-input-title-description">
+            <!-- Unordered list -->
+            <ul>
+                <li>
+                    Your input file must follow the <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3137218/"
+                        target="_blank">GT</a> format.
+                </li>
+                <li>
+                    <a href="">Here</a> is an example input file
+                </li>
+                <li>
+                    The input file must be in <b>.txt (space or tab separated)</b> or <b>.csv</b> format.
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div class="app-body-content-text-input">
+        <div class="app-body-content-text-input-label">
+            <label for="text-file-input">
+                <h3 class="upload-label">
+                    Upload SNP samples
+                </h3>
+            </label>
+        </div>
+        <div class="app-body-content-text-input-input">
+            <input type="file" id="text-file-input" name="text-file-input" accept=".txt">
+        </div>
+
+        <!-- Text input that accepts a number that is the sample size-->
+        <div class="app-body-content-text-input-title-input">
+            <input type="text" name="sample_size" placeholder="Sample size" id="numberOfSamples" required>
+            <input type="submit" value="Submit" onclick="uploadTextFile(this)">
+        </div>
+    </div>
+
+    <div id="plot"></div>
+</div>
+{% endblock content %}

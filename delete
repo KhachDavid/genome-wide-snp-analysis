@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# write a script to delete lines in the file from 117000 to 707928
+# and save the result in a new file
+sed '50000,707928d' armenian_EVA_020915_REFFIXED.csv > snp_armenian_mini.csv 

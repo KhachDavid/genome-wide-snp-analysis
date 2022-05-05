@@ -1,0 +1,2 @@
+#!/bin/bash
+./plink --bfile $1  --pca --out $1 --mind 0.99

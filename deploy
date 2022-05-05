@@ -1,0 +1,54 @@
+#!/bin/bash
+
+if [[ -z "$1" ]]
+then
+printf "\n\n"
+
+	printf "Please provide a commit message!"
+	exit 0
+fi
+
+printf "Collecting Static Files"
+python3 manage.py collectstatic
+printf "\n\n"
+
+printf "Adding git files"
+git add .
+printf "\n\n"
+
+printf "Git Status"
+git status
+printf "\n\n"
+
+read -p "Carefully check git status response. Does it reflect the updates you have made? <y/n> " prompt
+if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]]
+then
+	printf "Committing Git Files"
+	git commit -m "$1"
+	printf "\n\n"
+
+	heroku maintenance:on
+	printf "Maintenance Mode Applied"
+	printf "\n\n"
+
+	printf "Pushing\n"
+	git push heroku main
+	printf "\n\n"
+	
+	printf "Applying Migrations"
+	heroku run python3 manage.py migrate
+
+	printf "\n\n"
+	printf "Turning off maintenance mode!"
+	heroku maintenance:off
+	printf "
+	███████ ██    ██  ██████  ██████ ███████ ███████ ███████ 
+	██      ██    ██ ██      ██      ██      ██      ██      
+	███████ ██    ██ ██      ██      █████   ███████ ███████ 
+	     ██ ██    ██ ██      ██      ██           ██      ██ 
+	███████  ██████   ██████  ██████ ███████ ███████ ███████ "
+
+else
+	printf "Deployment Failed!"
+	exit 0
+fi

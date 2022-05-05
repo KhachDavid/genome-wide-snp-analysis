@@ -1,0 +1,2 @@
+#!/bin/bash
+./plink --tfile $1 --out $1 --make-bed --missing-genotype - --output-missing-genotype 0

@@ -1,0 +1,21 @@
+/**
+ * @author Outvite
+ * @copyright Copyright 2021
+ * @license GPL
+ * @version 1.0.0
+ * @host Outvite
+ * @email outvite@outvite.me
+ * @status development
+ * @credit 
+ * @date 07/26/2021
+ */
+
+
+:root {
+    --color-primary: #7857FE;
+    --color-primary-light: #F2F2F2;
+    --color-primary-dark: #B3B3B3;
+    --color-accent: #F44336;
+    --color-accent-light: #F2F2F2;
+    --color-accent-dark: #FF4081;
+}
